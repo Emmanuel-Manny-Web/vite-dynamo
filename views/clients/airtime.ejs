@@ -1,0 +1,419 @@
+<html lang="en" class="hydrated">
+<%- include('../partials/clients/head') %>
+
+  <body class="dark-mode">
+
+    <!-- loader -->
+    <div id="loader" style="display: none;">
+      <img src="images/vite-logo.jpeg" alt="icon" class="loading-icon" style="border: none; border-radius: 50%;">
+    </div>
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader bg-white text-primary">
+      <div class="left">
+        <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+          <ion-icon name="menu-outline" role="img" class="md hydrated"></ion-icon>
+        </a>
+      </div>
+      <div class="pageTitle">
+        <img src="images/vite-logo.jpeg" alt="logo" class="logo" style="border: none; border-radius: 50%;">
+      </div>
+      <div class="right">
+
+      </div>
+    </div>
+    <!-- * App Header -->
+
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+
+      <!-- Wallet Card -->
+      <%- include('../partials/clients/header') %>
+        <!-- Wallet Card -->
+
+        <!-- Deposit Action Sheet -->
+
+        <style type="text/css">
+          .copy-text {
+            cursor: pointer;
+          }
+        </style>
+        <%- include('../partials/clients/fund-modal') %>
+        <!-- * Deposit Action Sheet -->
+
+        <!-- Send Action Sheet -->
+        <div class="modal fade action-sheet" id="sendActionSheet" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Send Money</h5>
+              </div>
+              <div class="modal-body">
+                <div class="action-sheet-content">
+                  <form>
+                    <div class="form-group basic">
+                      <div class="input-wrapper">
+                        <label class="label" for="account2">From</label>
+                        <select class="form-control custom-select" id="account2">
+                          <option value="0">Savings (*** 5019)</option>
+                          <option value="1">Investment (*** 6212)</option>
+                          <option value="2">Mortgage (*** 5021)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group basic">
+                      <div class="input-wrapper">
+                        <label class="label" for="text11">To</label>
+                        <input type="email" class="form-control" id="text11" placeholder="Enter bank ID">
+                        <i class="clear-input"><ion-icon name="close-circle" role="img"
+                            class="md hydrated"></ion-icon></i>
+                      </div>
+                    </div>
+
+                    <div class="form-group basic">
+                      <label class="label">Enter Amount</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="input14">$</span>
+                        </div>
+                        <input type="text" class="form-control form-control-lg" placeholder="0">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group basic">
+                      <button type="button" class="btn btn-primary btn-block btn-lg"
+                        data-dismiss="modal">Deposit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- * Send Action Sheet -->
+
+
+
+        <div id="app-root">
+          <!-- Stats -->
+
+          <!-- * Stats -->
+
+          <!-- Transactions -->
+
+          <div class="section mt-4">
+            <div class="section-heading">
+              <h2 class="title text-center">Buy Airtime</h2>
+            </div>
+            <div class="section tab-content mt-2 mb-1">
+          
+          
+              <div class="row">
+                <div class="col-md-12">
+          
+          
+                  <div class="row">
+          
+                    <div class="col-md-6 mb-3">
+          
+                      <div class="card text-center">
+                        <div class="card-body text-white">
+                          <img src="images/9mobile-airtime.png" alt="9Mobile" class="img-fluid "
+                            width="80">
+                          <p class="mt-2">
+                            9Mobile
+                          </p>
+          
+                          <div class="mt-1">
+                            <small>(₦ 100 -
+                              ₦ 5000)
+                            </small>
+                          </div>
+          
+                          <p class="mt-2">
+                            <a href="/buy-recharge" class="btn btn-primary btn-block buy-airtime" data-toggle="modal"
+                              data-target="#airtimeModal" data-name="9Mobile"
+                              data-image="images/9mobile-airtime.png" data-min="100"
+                              data-max="5000" data-code="9mobile-airtime" data-info="Dial *232# to check Airtime balance"
+                              data-id="1" data-packages="[]">Buy Now</a>
+                          </p>
+          
+                        </div>
+                      </div>
+          
+                    </div>
+                    <div class="col-md-6 mb-3">
+          
+                      <div class="card text-center">
+                        <div class="card-body text-white">
+                          <img src="images/glo-airtime.png" alt="GLO AWUF(500% Bonus)"
+                            class="img-fluid " width="80">
+                          <p class="mt-2">
+                            GLO AWUF(500% Bonus)
+                          </p>
+          
+                          <div class="mt-1">
+                            <small>(₦ 50 -
+                              ₦ 1221)
+                            </small>
+                          </div>
+          
+                          <p class="mt-2">
+                            <a href="buy-recharge" class="btn btn-primary btn-block buy-airtime" data-toggle="modal"
+                              data-target="#airtimeModal" data-name="GLO AWUF(500% Bonus)"
+                              data-image="images/Glo-awoof (1).png" data-min="50" data-max="1221"
+                              data-code="glo-airtime-awuf" data-info="Dial #555*5# to check AWUF Balance" data-id="2"
+                              data-packages="[{&quot;id&quot;:1,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6120 + (\u20a6600 Bonus) - 14 Days&quot;,&quot;package_amount&quot;:115.2000000000000028421709430404007434844970703125,&quot;package_original_amount&quot;:120,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-TXOO&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:2,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6220 + (\u20a61,100 Bonus) - 14 Days&quot;,&quot;package_amount&quot;:211.19999999999998863131622783839702606201171875,&quot;package_original_amount&quot;:220,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-NWAX&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:3,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6320 + (\u20a61,600 Bonus) - 14 Days&quot;,&quot;package_amount&quot;:307.19999999999998863131622783839702606201171875,&quot;package_original_amount&quot;:320,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-AIAE&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:4,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6420 + (\u20a62,100 Bonus) - 14 Days&quot;,&quot;package_amount&quot;:403.19999999999998863131622783839702606201171875,&quot;package_original_amount&quot;:420,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-GROV&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:5,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6520 + (\u20a62,600 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:499.19999999999998863131622783839702606201171875,&quot;package_original_amount&quot;:520,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-UMXU&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:6,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6620 + (\u20a63,100 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:595.200000000000045474735088646411895751953125,&quot;package_original_amount&quot;:620,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-VSOG&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:7,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6720 + (\u20a63,600 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:691.200000000000045474735088646411895751953125,&quot;package_original_amount&quot;:720,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-AUFP&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:8,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6820 + (\u20a64,100 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:787.200000000000045474735088646411895751953125,&quot;package_original_amount&quot;:820,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-VQNG&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:9,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a6920 + (\u20a64,600 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:883.200000000000045474735088646411895751953125,&quot;package_original_amount&quot;:920,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-INKQ&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;},{&quot;id&quot;:10,&quot;provider_id&quot;:2,&quot;package_name&quot;:&quot;\u20a61020 + (\u20a65,100 Bonus) - 30 Days&quot;,&quot;package_amount&quot;:979.200000000000045474735088646411895751953125,&quot;package_original_amount&quot;:1020,&quot;package_api_code&quot;:&quot;PK-GLO-AWUF-XONO&quot;,&quot;status&quot;:&quot;Active&quot;,&quot;created_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-01-05T07:27:21.000000Z&quot;}]">Buy
+                              Now</a>
+                          </p>
+          
+                        </div>
+                      </div>
+          
+                    </div>
+                    <div class="col-md-6 mb-3">
+          
+                      <div class="card text-center">
+                        <div class="card-body text-white">
+                          <img src="images/mtn.png" alt="MTN AWUF(400% Bonus)"
+                            class="img-fluid " width="80">
+                          <p class="mt-2">
+                            MTN AWUF(400% Bonus)
+                          </p>
+          
+                          <div class="mt-1">
+                            <small>(₦ 100 -
+                              ₦ 5000)
+                            </small>
+                          </div>
+          
+                          <p class="mt-2">
+                            <a href="buy-recharge" class="btn btn-primary btn-block buy-airtime" data-toggle="modal"
+                              data-target="#airtimeModal" data-name="MTN AWUF(400% Bonus)"
+                              data-image="images/awoof.png" data-min="100" data-max="5000"
+                              data-code="mtn-airtime-awuf" data-info="Dial *310# to check MTN AWUF Balance" data-id="3"
+                              data-packages="[]">Buy Now</a>
+                          </p>
+          
+                        </div>
+                      </div>
+          
+                    </div>
+                    <div class="col-md-6 mb-3">
+          
+                      <div class="card text-center">
+                        <div class="card-body text-white">
+                          <img src="images/glo-airtime.png" alt="GLO" class="img-fluid "
+                            width="80">
+                          <p class="mt-2">
+                            GLO
+                          </p>
+          
+                          <div class="mt-1">
+                            <small>(₦ 100 -
+                              ₦ 5000)
+                            </small>
+                          </div>
+          
+                          <p class="mt-2">
+                            <a href="buy-recharge" class="btn btn-primary btn-block buy-airtime" data-toggle="modal"
+                              data-target="#airtimeModal" data-name="GLO"
+                              data-image="images/glo-data.png" data-min="100" data-max="5000"
+                              data-code="glo-airtime" data-info="Dial #124*1# to check airtime balance" data-id="4"
+                              data-packages="[]">Buy Now</a>
+                          </p>
+          
+                        </div>
+                      </div>
+          
+                    </div>
+                    <div class="col-md-6 mb-3">
+          
+                      <div class="card text-center">
+                        <div class="card-body text-white">
+                          <img src="images/mtn.png" alt="MTN" class="img-fluid " width="80">
+                          <p class="mt-2">
+                            MTN
+                          </p>
+          
+                          <div class="mt-1">
+                            <small>(₦ 50 -
+                              ₦ 5000)
+                            </small>
+                          </div>
+          
+                          <p class="mt-2">
+                            <a href="buy-recharge" class="btn btn-primary btn-block buy-airtime" data-toggle="modal"
+                              data-target="#airtimeModal" data-name="MTN"
+                              data-image="images/mtn-data.png" data-min="50" data-max="5000"
+                              data-code="mtn-airtime" data-info="Dial *310# to check airtime balance" data-id="5"
+                              data-packages="[]">Buy Now</a>
+                          </p>
+          
+                        </div>
+                      </div>
+          
+                    </div>
+          
+                  </div>
+          
+                </div>
+              </div>
+          
+          
+            </div>
+          
+          
+            <!-- Modal Basic -->
+            <div class="modal fade modalbox" id="airtimeModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title"><img src="" alt="" width="40"
+                        class="airtime-image img-fluid img-thumbnail img-responsive"> Buy <span class="airtime-name"></span>
+                      Airtime</h5>
+                    <a href="javascript:;" data-dismiss="modal">Close</a>
+                  </div>
+                  <div class="modal-body">
+          
+                    <form action="" method="post">
+                      <input type="hidden" name="_token" value="yypR1U25Tx5u0NqzP2prM7qOIAbAixW11MpSbKS4">
+                      <div class="modal-body">
+          
+                        <input type="hidden" name="provider_id" id="provider">
+                        <input type="hidden" name="provider_code" id="provider_code">
+          
+          
+                        <div class="card text-center bg-secondary ">
+                          <div class="card-body">
+                            <img src="" class="img-fluid airtime-image" width="100">
+                            <p class="mt-2 airtime-name" style="color: #1b1e21;">
+          
+                            </p>
+          
+                            <div class="mt-1">
+                              <small>(₦ <span class="min_amount"></span> - ₦ <span class="max_amount"></span>)</small>
+                            </div>
+          
+                            <p class="mt-4 info"></p>
+          
+                          </div>
+                        </div>
+          
+          
+                        <br>
+          
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="form-group mt-2">
+                              <label for="">Phone Number</label>
+                              <input type="tel" class="form-control" id="recipient" required="" name="phone"
+                                placeholder="Phone Number">
+          
+                              <div class="response-msg"></div>
+                              Save As Beneficiary
+                              <div class="custom-control custom-switch mb-1">
+                                <input type="checkbox" name="save" class="custom-control-input" id="saveAsBeneficiary">
+                                <label class="custom-control-label" for="saveAsBeneficiary"></label>
+                              </div>
+          
+          
+          
+                            </div>
+          
+          
+                            <div class="form-group mt-2">
+                              <label for="">Amount</label>
+                              <input type="number" class="form-control amount" required="" name="amount"
+                                placeholder="Airtime Amount">
+                            </div>
+          
+                            <div class="form-group mt-2">
+                              <label for="">Account PIN</label>
+                              <input type="password" class="form-control" required="" name="pin" placeholder="Account PIN">
+                            </div>
+          
+                          </div>
+                        </div>
+          
+          
+          
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Confirm Purchase</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- * Modal Basic -->
+          </div>
+
+          <!-- * Transactions -->
+
+
+
+
+        </div>
+
+
+
+
+
+
+        <!-- app footer -->
+        <div class="appFooter">
+          <div class="footer-title">
+            Copyright © Vite Dynamo 2024. All Rights Reserved.
+          </div>
+
+        </div>
+        <!-- * app footer -->
+
+    </div>
+    <!-- * App Capsule -->
+
+
+    <!-- App Bottom Menu -->
+    <%- include('../partials/clients/footer') %>
+      <!-- * App Bottom Menu -->
+
+      <!-- App Sidebar -->
+
+      <%- include('../partials/clients/sidebar') %>
+
+        <!-- * App Sidebar -->
+
+        <!-- ///////////// Js Files ////////////////////  -->
+        <!-- Jquery -->
+        <script src="js/lib/jquery-3.4.1.min.js"></script>
+        <!-- Bootstrap-->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Ionicons -->
+        <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+        <!-- Owl Carousel -->
+        <script src="js/owl.carousel.min.js"></script>
+        <!-- Base Js File -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+
+        <script src="js/custom.js"></script>
+        <script src="js/base.js"></script>
+
+
+
+
+  </body>
+
+</html>

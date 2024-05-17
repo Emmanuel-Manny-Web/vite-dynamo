@@ -1,0 +1,43 @@
+<div class="appBottomMenu">
+    <a href="/buy-airtime" class="item text-decoration-none">
+      <div class="col">
+        <ion-icon name="call-outline" role="img" class="md hydrated" aria-label="Airtime topup"></ion-icon>
+        <strong>Airtime</strong>
+      </div>
+    </a>
+    <a href="/data-bundle" class="item text-decoration-none">
+      <div class="col">
+        <ion-icon name="wifi-outline" role="img" class="md hydrated" aria-label="Data Bundle"></ion-icon>
+        <strong>Data Bundle</strong>
+      </div>
+    </a>
+    <a href="/dashboard" class="item text-decoration-none" style="overflow: unset;">
+      <div class="col">
+        <div class="action-button large">
+
+          <ion-icon name="home-outline" role="img" class="md hydrated"></ion-icon>
+        </div>
+      </div>
+    </a>
+    <a href="/cable-tv" class="item text-decoration-none">
+      <div class="col">
+        <ion-icon name="tv-outline" role="img" class="md hydrated" aria-label="Cable TV"></ion-icon>
+        <strong>Cable TV</strong>
+      </div>
+    </a>
+    <a href="/meter-token" class="item text-decoration-none">
+      <div class="col">
+        <ion-icon name="bulb-outline" role="img" class="md hydrated" aria-label="Electricity"></ion-icon>
+        <strong>Meter Token</strong>
+      </div>
+    </a>
+  </div>
+
+  <script>
+    const path = window.location.pathname
+    const anchors = document.querySelectorAll("a")
+    anchors.forEach((anchor) => {
+      const link = anchor.getAttribute("href")
+      link === path && link !== '/dashboard' ? anchor.setAttribute("class", "item text-decoration-none active") : null
+    })
+  </script>

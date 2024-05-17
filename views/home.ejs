@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#ab2923">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta data-n-head="1" name="twitter:image:src" content="images/vite-logo.jpeg" />
+    <link data-n-head="1" rel="icon" type="image/png" sizes="16x16" href="images/vite-logo.jpeg" />
+
+    <meta name="description" content="The easiest way to make your online payments. Accept payments for your business and services today using airtime.">
+
+    <meta name="keywords" content="Easiest way to convert airtime to cash in Nigeria, Make payment with airtime, Send and recieve payment in Nigeria with airtime, airtime is money, buy cheap data, MTN, Glo, 9mobile, Airtel, make payment for Gotv, Dstv">
+    <meta property="og:image" content="images/favicon.png">
+    <title>Vite Dynamo - Easiest way to convert airtime to cash and buy data
+    </title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/iziToast.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <script src="js/alpine.persist.min.js" defer=""></script>
+    <script src="js/alpine.intersect.min.js" defer=""></script>
+    <script defer="" src="js/alpine.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script>const BASE_URL = './';</script>
+    <script src="iziToast.min.js%40v%3D2.5.6998"></script>
+    <script src="sweetalert2.all.min.js%40v%3D2.5.6998"></script>
+    <script src="utils.js%40v%3D2.5.6998"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="js%40id%3DUA-90432823-1.html"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-90432823-1');
+    </script>
+
+</head>
+
+
+<body class="font-body">
+<header x-ref="header" x-data="{scrolled: false, mnav_opened: false}" x-init="() => {
+    window.addEventListener('scroll', e => {
+      let { scrollY } = window
+      scrolled = scrollY > ($refs.header.offsetHeight + 20)
+    })
+  }" class="fixed inset-x-0 top-0 z-50 duration-500 bg-atg-light shadow-sm" :class="scrolled ? 'shadow-sm' : ''">
+    <div class="content">
+        <div class="flex items-center justify-between py-4">
+            <div>
+                <a href="/">
+                    <img class="h-8" src="images/vite-logo.jpeg" alt="Vite Dynamo" style="border: none; border-radius: 50%;">
+                </a>
+            </div>
+            <div class="hidden lg:block">
+                <nav class="items-center hidden text-black lg:flex gap-x-10">
+                    <a href="/" class="duration-300 hover:underline hover:text-atg">
+                        Home
+                    </a>
+                    <a href="/buy-airtime" class="duration-300 hover:underline hover:text-atg">
+                        Airtime
+                    </a>
+                    <a href="/data-bundle" class="duration-300 hover:underline hover:text-atg">
+                        Data
+                    </a>
+                    <a href="/cable-tv" class="duration-300 hover:underline hover:text-atg">
+                        Cable TV
+                    </a>
+                </nav>
+            </div>
+            <div>
+                <nav class="items-center hidden lg:flex gap-x-6">
+                    <a href="/login" class="px-5 py-2 text-sm font-medium duration-500 border rounded lg:text-base text-atg hover:shadow-lg border-atg">
+                        Login
+                    </a>
+                    <a href="/register" class="px-5 py-2 text-sm font-medium text-white duration-500 border rounded lg:text-base hover:bg-primary-600 bg-atg hover:shadow-lg border-atg">
+                        Create Account
+                    </a>
+                </nav>
+                <nav class="lg:hidden">
+                    <a href="#" @click.prevent="mnav_opened = !mnav_opened" class="inline-flex items-center justify-center w-8 h-8 border rounded-full text-atg border-atg" id="toggle">
+                        <i class="fa fa-bars" :class="mnav_opened ? 'fa-times' : 'fa-bars'"></i>
+                        <span class="hidden">Menu</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <div class="pb-10 mt-5 lg:hidden hidden" :class="mnav_opened ? '' : 'hidden'" id="menu">
+            <div class="grid gap-5 text-center">
+                <a href="" class="duration-300 hover:underline hover:text-atg">
+                    Home
+                </a>
+                <a href="/buy-airtime" class="duration-300 hover:underline hover:text-atg">
+                    Airtime
+                </a>
+                <a href="/data-bundle" class="duration-300 hover:underline hover:text-atg">
+                    Data
+                </a>
+                <a href="/cable-tv" class="duration-300 hover:underline hover:text-atg">
+                    Cable TV
+                </a>
+
+
+                <a href="/login" class="px-5 py-2 text-sm font-medium duration-500 border rounded lg:text-base text-atg hover:shadow-lg border-atg">
+                    Login
+                </a>
+                <a href="/register" class="px-5 py-2 text-sm font-medium text-white duration-500 border rounded lg:text-base bg-atg hover:shadow-lg border-atg">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="pt-6 lg:pt-16 bg-atg-light">
+        <div class="content lg:py-20">
+            <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+                <div class="py-20">
+                    <h1 class="text-4xl font-bold leading-snug lg:text-6xl lg:leading-[1.2]">
+                        The easiest way to make your <span class="text-atg">online</span> payments.
+                    </h1>
+                    <p class="mt-6">
+                        Make &amp; receive payments, instant airtime and data delivery, make bill payments
+                        with Vite Dynamo. The all-in-one payments app.
+                    </p>
+                    <div class="flex mt-12 gap-x-5">
+
+
+                    </div>
+                    <div class="mt-10">
+
+                    </div>
+                </div>
+                <div class="justify-end hidden lg:flex">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-no-repeat bg-[length:35%] lg:bg-[center_right_-200px]" style="background-image: url('images/bg-util.png');">
+        <div class="pt-20 lg:pb-24 lg:pt-32">
+            <div class="content">
+                <h2 class="pl-10 text-2xl font-bold border-l-4 lg:text-4xl border-atg lg:leading-snug">
+                    Join over <span class="text-atg">10k</span> <br>
+                    people who use Vite Dynamo.
+                </h2>
+                <div class="grid grid-cols-1 gap-8 mt-20 lg:gap-14 lg:grid-cols-3">
+                    
+                    <div class="relative p-6 duration-500 bg-gray-100 rounded-lg shadow hover:-translate-y-2 hover:bg-gray-50">
+                        <div>
+                            <img class="w-10 h-10" src="images/airtime.png" alt="Airtime topup">
+                        </div>
+                        <div class="mt-5 font-semibold text-atg">
+                            Airtime Topup
+                        </div>
+                        <div class="mt-4 font-light">
+                            Purchase airtime for MTN, Glo, 9mobile &amp; Airtel at the best possible / discounted rates.
+                        </div>
+                    </div>
+                    <div class="relative p-6 duration-500 bg-gray-100 rounded-lg shadow hover:-translate-y-2 hover:bg-gray-50">
+                        <div>
+                            <img class="w-10 h-10" src="images/data.png" alt="Data purchase">
+                        </div>
+                        <div class="mt-5 font-semibold text-atg">
+                            Data Purchase
+                        </div>
+                        <div class="mt-4 font-light">
+                            We offer the best rates on data purchase for all available networks in Nigeria.
+                        </div>
+                    </div>
+                    <div class="relative p-6 duration-500 bg-gray-100 rounded-lg shadow hover:-translate-y-2 hover:bg-gray-50">
+                        <div>
+                            <img class="w-10 h-10" src="images/bills.png" alt="Bill Payment">
+                        </div>
+                        <div class="mt-5 font-semibold text-atg">
+                            Bill Payments
+                        </div>
+                        <div class="mt-4 font-light">
+                            Pay for your Tv/Cable (Dstv, Gotv, etc.), Internet, Electricity &amp; other merchants using
+                            the Vite Dynamo app.
+                        </div>
+                    </div>
+                    <div class="relative p-6 duration-500 bg-gray-100 rounded-lg shadow hover:-translate-y-2 hover:bg-gray-50">
+                        <div>
+                            <img class="w-10 h-10" src="images/nairapin.png" alt="Airtime Payments">
+                        </div>
+                        <div class="mt-5 font-semibold text-atg">
+                            Airtime Payments
+                        </div>
+                        <div class="mt-4 font-light">
+                            Send and receive payments, pay bills &amp; Receive &amp; send cash using Vite Dynamo.
+                        </div>
+                    </div>
+                    <div class="relative p-6 duration-500 bg-gray-100 rounded-lg shadow hover:bg-gray-50 hover:-translate-y-2">
+                        <div class="relative z-10">
+                            <div>
+                                <img class="w-10 h-10" src="images/send-receive.png" alt="Airtime to Cash">
+                            </div>
+                            <div class="mt-5 font-semibold text-atg">
+                                Send &amp; Receive Money
+                            </div>
+                            <div class="mt-4 font-light">
+                                With Vite Dynamo, you can send &amp; receive money with ease. Send money to bank,
+                                merchants &amp; other users
+                                instantly.
+                            </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 z-0 duration-300 bg-atg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-16 lg:pb-20">
+            <div class="content">
+                <h2>
+                    <div class="flex justify-center">
+          <span class="px-3 py-1 text-sm text-white rounded-lg bg-atg">
+            Why Vite Dynamo?
+          </span>
+                    </div>
+                    <div class="mt-6 text-3xl font-bold leading-normal text-center lg:text-4xl">
+                        Transactions Made Easy!
+                    </div>
+                </h2>
+
+                <div class="grid grid-cols-1 gap-5 mt-10 lg:mt-20 lg:gap-10 lg:grid-cols-4">
+                    <div class="p-5 text-center rounded lg:py-7 bg-atg-light">
+                        <div class="flex justify-center">
+                            <img class="h-10 lg:h-12" src="images/pattern-lock.png" alt="Seamless transaction">
+                        </div>
+                        <div class="mt-5 font-bold">
+                            Seamless Transactions.
+                        </div>
+                        <div class="mt-5 text-sm font-light">
+                            Vite Dynamo is structured in a manner that makes it easy to use so that you can
+                            conveniently access &amp; perform
+                            transactions.
+                        </div>
+                        <div class="mt-6 text-sm font-medium text-atg">
+                            <a href="#" class="group">
+                                Learn More
+                                <i class="ml-1 duration-300 fa fa-angle-right group-hover:ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center rounded lg:py-7 bg-atg-light">
+                        <div class="flex justify-center">
+                            <img class="h-10 lg:h-12" src="images/headphones.png" alt="Customer Support">
+                        </div>
+                        <div class="mt-5 font-bold">
+                            Customer Support.
+                        </div>
+                        <div class="mt-5 text-sm font-light">
+                            Get prompt response to your complaints, issues or enquiries by using any of our available
+                            call or social
+                            channels.
+                        </div>
+                        <div class="mt-6 text-sm font-medium text-atg">
+                            <a href="#" class="group">
+                                Contact Us
+                                <i class="ml-1 duration-300 fa fa-angle-right group-hover:ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center rounded lg:py-7 bg-atg-light">
+                        <div class="flex justify-center">
+                            <img class="h-10 lg:h-12" src="images/cyber-security.png" alt="Security">
+                        </div>
+                        <div class="mt-5 font-bold">
+                            Security.
+                        </div>
+                        <div class="mt-5 text-sm font-light">
+                            Vite Dynamo has embraced technology in its operations to ensure that you can
+                            peform transactions securely and
+                            efficiently.
+                        </div>
+                        <div class="mt-6 text-sm font-medium text-atg">
+                            <a href="#" class="group">
+                                Read More
+                                <i class="ml-1 duration-300 fa fa-angle-right group-hover:ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 text-center rounded lg:py-7 bg-atg-light">
+                        <div class="flex justify-center">
+                            <img class="h-10 lg:h-12" src="images/clock.png" alt="Fast and reliable">
+                        </div>
+                        <div class="mt-5 font-bold">
+                            Fast &amp; Reliable.
+                        </div>
+                        <div class="mt-5 text-sm font-light">
+                            With experience, we have learnt in the past years to be able to fully optimize our platform
+                            for speed and
+                            dependability.
+                        </div>
+                        <div class="mt-6 text-sm font-medium text-atg">
+                            <a href="#" class="group">
+                                More Info
+                                <i class="ml-1 duration-300 fa fa-angle-right group-hover:ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</main>
+
+<footer class="pt-10 pb-12 mt-10 text-sm text-white bg-black lg:mt-0">
+    <div class="content">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-y-10 lg:gap-y-0 lg:gap-x-10">
+            <div class="col-span-2 lg:items-start lg:col-span-1">
+                <div>
+                    <img class="h-10" src="images/vite-logo.jpeg" alt="" style="border: none; border-radius: 50%;">
+                </div>
+                <div class="hidden mt-1 italic text-gray-300 lg:block">
+                    Transactions made easy...
+                </div>
+            </div>
+            <div>
+                <div class="font-semibold text-w">
+                    Products
+                </div>
+                <ul class="mt-6 space-y-4 text-gray-400">
+                    <li>
+                        <a href="/buy-airtime" class="hover:text-atg">
+                            Airtime
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cable-tv" class="hover:text-atg">
+                            Cable TV
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/data-bundle" class="hover:text-atg">
+                            Data Topup
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-w">
+                    Company
+                </div>
+                <ul class="mt-6 space-y-4 text-gray-400">
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            Terms of Service
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-w">
+                    Developers
+                </div>
+                <ul class="mt-6 space-y-4 text-gray-400">
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            API Reference
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            Documentation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-atg">
+                            Libraries
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex space-x-5 text-lg text-gray-500">
+                        <a target="_blank" href="#" class="hover:text-atg">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a target="_blank" href="#" class="hover:text-atg">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target="_blank" href="#" class="hover:text-atg">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:virtualpayon@gmail.com" class="hover:text-atg">
+                            virtualpayon@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        09017125687
+                    </li>
+                    <li>
+                        12 ONOPHROJIRE STREET UGHELLI
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="py-5 mt-12 text-center text-gray-600 border-t border-b border-gray-800">
+            © <%= new Date().toString().slice(11, 15) %> ·
+            Vite Dynamo
+        </div>
+    </div>
+</footer>
+</body>
+<script>
+  const toggle = document.querySelector("#toggle")
+  const menu = document.getElementById("menu")
+  let openMenu = false
+
+  toggle.addEventListener("click", (event) => {
+    event.preventDefault()
+
+    openMenu = !openMenu
+    if(openMenu) {
+      menu.setAttribute("class", "pb-10 mt-5 lg:hidden")
+    }
+  })
+</script>
+</html>
