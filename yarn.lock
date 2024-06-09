@@ -619,6 +619,11 @@ jake@^10.8.5:
     filelist "^1.0.4"
     minimatch "^3.1.2"
 
+js-sha512@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/js-sha512/-/js-sha512-0.9.0.tgz#ed569aa1e4bdaf0b83363c29db1ab87b1192d9ae"
+  integrity sha512-mirki9WS/SUahm+1TbAPkqvbCiCfOAAsyXeHxK1UkullnJVVqoJG2pL9ObvT05CN+tM7fxhfYm0NbXn+1hWoZg==
+
 jsonwebtoken@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-9.0.2.tgz#65ff91f4abef1784697d40952bb1998c504caaf3"

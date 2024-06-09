@@ -1,6 +1,7 @@
 import { Router } from "express"
 import API from "../controller/controller"
 import { AuthCheck } from "../middleware/auth"
+import Handler from "../controller/external"
 
 const router = Router()
 
@@ -17,6 +18,7 @@ router.get('/404', AuthCheck, API.get404Page)
 router.get('/logout', AuthCheck, API.logout)
 router.post('/signup', API.registerUser)
 router.post('/signin', API.loginUser)
+router.post('/mnfy-webhook', Handler.mnfyWebHOOK)
 
 
 export default router
