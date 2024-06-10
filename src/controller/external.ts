@@ -25,21 +25,23 @@ export default class Handler {
   static async mnfyWebHOOK(req: Request, res: Response) {
     const body = req.body
     const hash = (await connect).computeHash(body)
-    console.log(hash)
-    console.log(req.headers["monnify-signature"])
     if (hash === req.headers['monnify-signature']) {
       const { eventData, eventType } = req.body
       const { transactionReference, paymentReference, amountPaid, customer } = eventData
-      console.log(req.body.eventData)
+      console.log(eventData)
       if (eventType === 'SUCCESSFUL_TRANSACTION') {
-        await (await connect).depositModel.findOneAndUpdate({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
-          status: "Approved"
-        })
-        await (await connect).balanceModel.findOneAndUpdate({ phone: customer.name }, {
-          $inc: {
-            balance: amountPaid
-          }
-        })
+        const deposit = await (await connect).depositModel.findOne({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" })
+        if (deposit !== null) {
+         await (await connect).depositModel.findOneAndUpdate({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
+            status: "Approved"
+          })
+          await (await connect).balanceModel.findOneAndUpdate({ phone: customer.name }, {
+            $inc: {
+              balance: amountPaid
+            }
+          })
+          console.log('true')
+        }
       }
       res.status(200).json({ ok: true })
     } else {
