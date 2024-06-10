@@ -28,16 +28,19 @@ export default class Handler {
     console.log(hash)
     console.log(req.headers["monnify-signature"])
     if (hash === req.headers['monnify-signature']) {
-      const { transactionReference, paymentReference, amountPaid, customer } = req.body
-      console.log(req.body)
-      await (await connect).depositModel.findOneAndUpdate({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
-        status: "Approved"
-      })
-      await (await connect).balanceModel.findOneAndUpdate({ phone: customer.name }, {
-        $inc: {
-          balance: amountPaid
-        }
-      })
+      const { eventData, eventType } = req.body
+      const { transactionReference, paymentReference, amountPaid, customer } = eventData
+      console.log(req.body.eventData)
+      if (eventType === 'SUCCESSFUL_TRANSACTION') {
+        await (await connect).depositModel.findOneAndUpdate({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
+          status: "Approved"
+        })
+        await (await connect).balanceModel.findOneAndUpdate({ phone: customer.name }, {
+          $inc: {
+            balance: amountPaid
+          }
+        })
+      }
       res.status(200).json({ ok: true })
     } else {
       res.status(401).json({ ok: false, error: "Invalid hash/signature" })
