@@ -19,6 +19,7 @@ router.get('/logout', AuthCheck, API.logout)
 router.post('/signup', API.registerUser)
 router.post('/signin', API.loginUser)
 router.post('/mnfy-webhook', Handler.mnfyWebHOOK)
+router.post('/paystack-webhook', Handler.paystackWithdrawal)
 
 
 export default router
