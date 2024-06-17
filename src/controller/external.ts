@@ -34,15 +34,15 @@ export default class Handler {
     const hash = (await connect).computeHash(body)
     if (hash === req.headers['monnify-signature']) {
       const { eventData, eventType } = req.body
-      const { transactionReference, paymentReference, amountPaid, customer } = eventData
+      const { transactionReference, paymentReference, amountPaid } = eventData
       console.log(eventData)
       if (eventType === 'SUCCESSFUL_TRANSACTION') {
-        const deposit = await (await connect).depositModel.findOne({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" })
+        const deposit = await (await connect).depositModel.findOne({ amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" })
         if (deposit !== null) {
-         await (await connect).depositModel.findOneAndUpdate({ phone: customer.name, amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
+         await (await connect).depositModel.findOneAndUpdate({ amount: amountPaid, paymentReference, transReference: transactionReference, status: "Pending" }, {
             status: "Approved"
           })
-          await (await connect).balanceModel.findOneAndUpdate({ phone: customer.name }, {
+          await (await connect).balanceModel.findOneAndUpdate({ phone: deposit.phone }, {
             $inc: {
               balance: amountPaid
             }
