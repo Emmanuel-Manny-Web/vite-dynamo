@@ -57,8 +57,9 @@ export default class Handler {
   }
   static async paystackWithdrawal(req: Request, res: Response) {
     const { data, event } = req.body
+    const body = req.body
     console.log(data)
-    const hash = (await connect).verifyPaystackHash(req.body)
+    const hash = (await connect).verifyPaystackHash(body)
     if (hash === req.headers['x-paystack-signature']) {
       if (event === 'transfer.success' && data.status === 'success') {
         await (await connect).withdrawalModel.findOneAndUpdate({ transfer_code: data.transfer_code, status: "Pending" }, { status: "Paid" })
