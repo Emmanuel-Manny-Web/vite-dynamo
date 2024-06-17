@@ -74,6 +74,7 @@ export default class Handler {
       }
       res.status(200).json({ ok: true })
     } else {
+      console.log('Hash does not match')
       res.status(200).json({ ok: false })
     }
   }
