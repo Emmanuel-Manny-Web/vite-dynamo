@@ -5,7 +5,6 @@ import Withdraw, { IWithdraw } from "../extension/withdraw"
 import Notification from "../extension/notification"
 import { Request, Response } from "express"
 import { sha512 } from "js-sha512"
-import crypto from "crypto"
 const connect = (async () => {
 
 async function createConnection() {
@@ -24,7 +23,7 @@ const computeHash = (body: any) => {
   return result
 }
   const verifyPaystackHash = (body: any) => {
-  return crypto.createHmac('sha512', process.env.PAYSTACK_SECRET_KEY!).update(JSON.stringify(body)).digest('hex')
+  return sha512.hmac(process.env.PAYSTACK_SECRET_KEY!, JSON.stringify(body))
 }
 return { depositModel, balanceModel, withdrawalModel, notificationModel, computeHash, verifyPaystackHash }
 })()
@@ -58,9 +57,8 @@ export default class Handler {
   }
   static async paystackWithdrawal(req: Request, res: Response) {
     const { data, event } = req.body
-    const body = req.body
     console.log(data)
-    const hash = (await connect).verifyPaystackHash(body)
+    const hash = (await connect).verifyPaystackHash(req.body)
     if (hash === req.headers['x-paystack-signature']) {
       if (event === 'transfer.success' && data.status === 'success') {
         await (await connect).withdrawalModel.findOneAndUpdate({ transfer_code: data.transfer_code, status: "Pending" }, { status: "Paid" })
